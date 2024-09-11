@@ -1,0 +1,74 @@
+<form [formGroup]="orders" class="max-w-lg mx-auto" (ngSubmit)="orderSubmit()">
+
+    <!-- details -->
+    <div class="relative z-0 w-full mb-5 group">
+        <textarea formControlName = "details"
+        [ngClass] = "{
+            'is-valid' : !orders.get('name')?.errors && (orders.get('name')?.touched || orders.get('name')?.dirty),
+            'is-invalid' : orders.get('name')?.errors && (orders.get('name')?.touched || orders.get('name')?.dirty)
+
+        }"
+        name="details" id="floating_details" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required ></textarea>
+        <label for="floating_details" class="peer-focus:font-medium absolute text-sm text-gray-500  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">product details...</label>
+    </div>
+    <!-- phone -->
+    <div class="relative z-0 w-full mb-5 group">
+        <input
+        [ngClass] = "{
+            'is-valid' : !orders.get('phone')?.errors && (orders.get('phone')?.touched || orders.get('phone')?.dirty),
+            'is-invalid' : orders.get('phone')?.errors && (orders.get('phone')?.touched || orders.get('phone')?.dirty)
+
+        }"
+         formControlName = "phone" type="tel" name="floating_phone" id="floating_phone" class=" block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+        <label for="floating_phone" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">phone</label>
+
+        @if (orders.get('phone')?.errors && (orders.get('phone')?.touched || orders.get('phone')?.dirty))  {
+            <div class="custom-alert mt-3 shadow-transparent">
+                @if (orders.get('phone')?.getError('required')) {
+                <p class="m-0">Required</p>
+                }
+                @else if (orders.get('phone')?.getError('pattern')) {
+
+                <p class="m-0">accept only egypt phone numbers</p>
+                }
+
+            </div>
+            }
+    </div>
+    <!-- address -->
+    <div class="relative z-0 w-full mb-5 group">
+        <input [ngClass] = "{
+            'is-valid' : !orders.get('phone')?.errors && (orders.get('phone')?.touched || orders.get('phone')?.dirty),
+            'is-invalid' : orders.get('phone')?.errors && (orders.get('phone')?.touched || orders.get('phone')?.dirty)
+
+        }"
+         formControlName = "city" type="text" name="floating_city" id="floating_city" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+        <label for="floating_city" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">address</label>
+        @if (orders.get('city')?.errors && (orders.get('city')?.touched || orders.get('city')?.dirty))  {
+            <div class="custom-alert mt-3 shadow-transparent">
+                @if (orders.get('city')?.getError('required')) {
+                <p class="m-0">Required</p>
+                }
+                @else if (orders.get('city')?.getError('pattern')) {
+
+                <p class="m-0">City name can only contain letters, spaces, or hyphens (e.g., New York, San-Francisco).</p>
+                }
+
+            </div>
+            }
+    </div>
+
+
+    <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">
+        Check Out
+        @if (isLoading) {
+            <span><i class="fas fa-spin fa-spinner"></i></span>
+        }
+    </button>
+    @if (errorMsg) {
+        <p class="custom-alert m-0">{{errorMsg}}</p>
+    }
+    @if(successMsg){
+        <p class="bg-green-50 border border-green-500 text-green-900 dark:text-green-400 placeholder-green-700  text-sm rounded-lg p-2.5 m-2 w-full">{{successMsg}}</p>
+    }
+  </form>

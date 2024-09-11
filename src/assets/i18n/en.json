@@ -1,0 +1,132 @@
+{
+    "nav": {
+        "home": "Home",
+        "about": "About",
+        "contact": "Contact",
+        "login": "Login",
+        "register": "Register",
+        "products": "Products",
+        "categories": "Categories",
+        "signout": "Sign Out",
+        "brands": "Brands",
+        "lang": "language"
+    },
+    "mainSlider": {
+        "Welcome to our store": "Welcome To Our Store",
+        "Get the best products at the best prices": "Get The Best Products At The Best Prices",
+        "shop now": "Shop Now"
+    },
+    "categories": {
+        "popular categories": "Popular Categories: "
+    },
+    "home": {
+        "search": "Search...",
+        "popular products": "Popular Products: ",
+        "add to cart": "Add To Cart",
+        "priceCurrency": "GBP",
+        "ratings": "Ratings"
+    },
+    "footer": {
+        "get": "Get",
+        "the": "The",
+        "FreshCart": "Fresh Cart",
+        "app": "App",
+        "we": "We",
+        "will": "Will",
+        "send": "Send",
+        "you": "You",
+        "a": "A",
+        "link": "Link",
+        ",": ",",
+        "open": "Open",
+        "it": "It",
+        "on": "On",
+        "your": "Your",
+        "phone": "Phone",
+        "download": "Download",
+        "contact": "Contact",
+        "address": "Address",
+        "email": "Email",
+        "newsletter": "Newsletter",
+        "Get The FreshCart App": "Get The FreshCart App",
+        "We will send you a link, open it on your phone to download the app.": "We will send you a link, Open it on your phone to download app.",
+        "newsletter text": "Subscribe to our newsletter to receive the latest news and offers.",
+        "subscribe": "Subscribe",
+        "subscribe success": "You have successfully subscribed to our newsletter.",
+        "subscribe error": "An error occurred. Please try again later.",
+        "subscribe invalid": "Invalid email address. Please enter a valid email address.",
+        "subscribe exists": "This email address is already subscribed to our newsletter.",
+        "share": "Share",
+        "Share App Link": "Share App Link",
+        "Payment": "Payment",
+        "partners": "Partners",
+        "Payment partners": "Payment Partners",
+        "Get Deliveries with FreshCart": "Get Deliveries with FreshCart"
+    },
+    "cart": {
+        "title": "Shop Cart",
+        "totalItems": "Total Items",
+        "totalPrice": "Total Price",
+        "clear": "Clear",
+        "clearPopupTitle": "Are you sure you want to clear the cart?",
+        "clearPopupConfirm": "Yes, I'm sure",
+        "clearPopupCancel": "No, cancel",
+        "remove": "Remove",
+        "order": "Order",
+        "empty": "Your cart is empty",
+        "shopNow": "Shop Now"
+    },
+    "wishlist": {
+        "title": "FAVORITES",
+        "items": "ITEMS",
+        "ratings": {
+            "average": "Average Rating"
+        },
+        "addToCart": "Add to cart",
+        "removeFromWishlist": "Remove from wishlist",
+        "currency": "GBP"
+    },
+    "productDetails": {
+        "title": "Product Details",
+        "category": "Category",
+        "description": "Description",
+        "price": "Price",
+        "reviews": "Reviews",
+        "addToCart": "Add to Cart",
+        "images": "+Product Images",
+        "currency": "GBP"
+    },
+    "register": {
+        "title": "Register Now",
+        "name": "Name",
+        "email": "Email",
+        "password": "Password",
+        "rePassword": "Confirm Password",
+        "phone": "Phone",
+        "required": "Required",
+        "nameMinLength": "Name should be more than or equal to 3 characters",
+        "nameMaxLength": "Name should be less than or equal to 20 characters",
+        "invalidEmail": "Enter a valid email",
+        "passwordPattern": "Password must start with an uppercase letter and be at least 6 characters",
+        "(123-456-7890)": "(123-456-7890)",
+        "phonePattern": "Accepts only Egyptian phone numbers",
+        "mismatch": "Password confirmation is incorrect",
+        "submit": "Submit",
+        "loading": "Loading",
+        "success": "Registration successful!",
+        "error": "An error occurred. Please try again."
+    },
+    "login": {
+    "title": "Login Now",
+    "email": "Email",
+    "password": "Password",
+    "required": "Required",
+    "invalidEmail": "Enter a valid email",
+    "passwordPattern": "Password must start with an uppercase letter and be at least 6 characters",
+    "forgotPassword": "Forgot your password?",
+    "login": "Login",
+    "loading": "Loading",
+    "success": "Login successful!",
+    "error": "An error occurred. Please try again."
+  }
+}

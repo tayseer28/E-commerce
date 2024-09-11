@@ -1,0 +1,131 @@
+{
+    "nav": {
+        "home": "الرئيسية",
+        "about": "من نحن",
+        "contact": "تواصل معنا",
+        "login": "تسجيل الدخول",
+        "register": "تسجيل",
+        "products": "المنتجات",
+        "categories": "الأقسام",
+        "signout": "تسجيل الخروج",
+        "lang": "غ",
+        "brands": "العلامات التجارية"
+    },
+    "mainSlider": {
+        "Welcome to our store": "مرحبا بكم في متجرنا",
+        "Get the best products at the best prices": "احصل على أفضل المنتجات بأفضل الأسعار",
+        "shop now": "تسوق الآن"
+    },
+    "categories": {
+        "popular categories": "الأقسام الشهيرة: "
+    },
+    "home": {
+        "search": "بحث...",
+        "popular products": "المنتجات الشهيرة",
+        "add to cart": "أضف إلى السلة",
+        "priceCurrency": "جنيه إسترليني",
+        "ratings": "التقييمات"
+    },
+    "footer": {
+        "get": "احصل",
+        "the": "على",
+        "FreshCart": "فريش كارت",
+        "app": "تطبيق",
+        "we": "نحن",
+        "will": "سوف",
+        "send": "نرسل",
+        "you": "لك",
+        "a": "",
+        "link": "رابط",
+        ",": ",",
+        "open": "افتح",
+        "it": "هو",
+        "on": "على",
+        "your": "هاتفك",
+        "phone": "الجوال",
+        "download": "تحميل",
+        "contact": "تواصل",
+        "address": "العنوان",
+        "email": "البريد الإلكتروني",
+        "newsletter": "النشرة الإخبارية",
+        "newsletter text": "اشترك في النشرة الإخبارية لدينا لتلقي أحدث الأخبار والعروض.",
+        "Get The FreshCart App": "احصل على التطبيق",
+        "We will send you a link, open it on your phone to download the app.": "سنرسل لك رابطا؛ افتحه على هاتفك لتحميل التطبيق",
+        "subscribe": "اشتراك",
+        "subscribe success": "لقد اشتركت بنجاح في النشرة الإخبارية لدينا.",
+        "subscribe error": "حدث خطأ. يرجى المحاولة مرة أخرى في وقت لاحق.",
+        "subscribe invalid": "عنوان البريد الإلكتروني غير صالح. يرجى إدخال عنوان بريد إلكتروني صالح.",
+        "subscribe exists": "هذا البريد الإلكتروني مشترك بالفعل في النشرة الإخبارية لدينا.",
+        "Share App Link": "شارك رابط التطبيق",
+        "Payment": "الدفع",
+        "partners": "الشركاء",
+        "Payment partners": "شركاء الدفع",
+        "Get Deliveries with FreshCart": "احصل على التوصيل مع فريش كارت"
+    },
+    "cart": {
+        "title": "سلة التسوق",
+        "totalItems": "إجمالي العناصر",
+        "totalPrice": "السعر الكلي",
+        "clear": "مسح",
+        "clearPopupTitle": "هل أنت متأكد؟",
+        "clearPopupConfirm": "نعم، مسح",
+        "clearPopupCancel": "إلغاء",
+        "remove": "إزالة",
+        "order": "طلب",
+        "empty:": "سلتك فارغة",
+        "shopNow": "تسوق الآن"
+    },
+    "wishlist": {
+        "title": "قائمة الرغبات",
+        "items": "العناصر",
+        "ratings": {
+            "average": "المتوسط"
+        },
+        "addToCart": "أضف إلى السلة",
+        "removeFromWishlist": "إزالة من قائمة الرغبات",
+        "currency": "جنيه إسترليني"
+    },
+    "productDetails": {
+        "title": " تفاصيل المنتجات",
+        "category": "القسم",
+        "description": "الوصف",
+        "price": "السعر",
+        "reviews": "التقييمات",
+        "addToCart": "أضف إلى السلة",
+        "images": "صور المنتج",
+        "currency": "جنيه إسترليني"
+    },
+    "register": {
+        "title": "تسجيل",
+        "name": "الاسم",
+        "email": "البريد الإلكتروني",
+        "password": "كلمة المرور",
+        "rePassword": "تأكيد كلمة المرور",
+        "phone": "رقم الهاتف",
+        "required": "مطلوب",
+        "(123-456-7890)": "(123-456-7890)",
+        "nameMinLength": "يجب أن يكون الاسم أكبر من 3 أحرف",
+        "nameMaxLength": "يجب أن يكون الاسم أقل من 20 حرفًا",
+        "invalidEmail": "البريد الإلكتروني غير صالح",
+        "passwordPattern": "يجب أن تحتوي كلمة المرور على حرف كبير وتكون اكبر من 6 أحرف",
+        "phonePattern": "يقبل فقط أرقام الهواتف المصرية",
+        "mismatch": "تأكيد كلمة المرور غير صحيح",
+        "submit": "إرسال",
+        "loading": "جار التحميل",
+        "success": "تم التسجيل بنجاح!",
+        "error": "حدث خطأ. يرجى المحاولة مرة أخرى."
+    },
+    "login": {
+        "title": "تسجيل الدخول",
+        "email": "البريد الإلكتروني",
+        "password": "كلمة المرور",
+        "required": "مطلوب",
+        "invalidEmail": "البريد الإلكتروني غير صالح",
+        "passwordPattern": "يجب أن تحتوي كلمة المرور على حرف كبير وتكون اكبر من 6 أحرف",
+        "forgotPassword": "نسيت كلمة المرور؟",
+        "login": "تسجيل الدخول",
+        "loading": "جار التحميل",
+        "success": "تم تسجيل الدخول بنجاح!",
+        "error": "حدث خطأ. يرجى المحاولة مرة أخرى."
+    }
+}

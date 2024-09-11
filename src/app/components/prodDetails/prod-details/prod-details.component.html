@@ -1,0 +1,61 @@
+@if(productDetails){
+<section id="prodDetails" class="my-5">
+    <div class="container ">
+        <h1 class="text-main h2 text-center my-3">{{"productDetails.title" | translate}}</h1>
+        <div class="grid grid-cols-1 md:grid-cols-12 items-center  gap-10">
+            <div class="col-span-1 md:col-span-4">
+                <owl-carousel-o [options]="customOptionsDet">
+                    @for (image of productDetails.images; track $index) {
+                        <ng-template carouselSlide >
+                            <img [src]="image" [alt]="productDetails.title" class="w-full h-[350px] object-contain md:object-cover rounded-t-md">
+                        </ng-template>
+                    }
+
+                </owl-carousel-o>
+            </div>
+            <div class="md:col-span-8">
+                <div class="">
+                    <h2 class="h2 font-semibold">{{productDetails.title}}</h2>
+                    <p class="text-gray-400 my-3">{{productDetails.description}}</p>
+                    <!-- we use ? cause we use and call the name property from our code, so it could be undefined in the time we call the api and the api returns the data  -->
+                    <h3 class="text-[16px]">{{productDetails.category.name}}</h3>
+                    <!-- rating part -->
+                    <div class="flex justify-between items-center mt-2">
+                        <span class="flex items-center gap-3" class="lg:text-[14px] text-2xl font-extrabold">{{productDetails.price | currency}}</span>
+
+                        <div class="flex gap-2 items-center">
+                            <app-rating [ratingAvg]="productDetails.ratingsAverage"></app-rating>
+                            <span class="underline hover:no-underline">From {{productDetails.ratingsQuantity}} Reviews</span>
+                        </div>
+                    </div>
+                    <div class="policies my-3">
+                        <span class="flex items-center gap-3 font-semibold mb-2">
+                            <i class="far fa-circle-check"></i>
+                            Free Return
+                        </span>
+                        <span class="flex items-center gap-3 font-semibold mb-2">
+                            <i class="far fa-circle-check"></i>
+                            Chat With us 24 hours
+                        </span>
+                        <span class="flex items-center gap-3 font-semibold mb-2">
+                            <i class="far fa-circle-check"></i>
+                            FComes with a Package
+                        </span>
+
+                    </div>
+                    <div class="sold-quant flex gap-2 items-center ">
+                        <div class="flex -space-x-1 rtl:space-x-reverse items-center">
+                            <i class=" fa-solid fa-users"></i>
+                            <a class="flex items-center justify-center w-8 h-8 text-xs font-medium text-white bg-gray-700 border-2 border-white rounded-full hover:bg-gray-600 dark:border-gray-800" href="#">+99</a>
+
+                        </div>
+                        <span class="text-[--main-color] tex-[12-px] font-sans font-bold  bg-blue-50 rounded-md p-2">{{productDetails.sold}} sold</span>
+                    </div>
+                </div>
+                <button (click)="addToCart(productDetails._id)" class="btn-main mt-6">{{"productDetails.addToCart" | translate}}</button>
+            </div>
+
+        </div>
+    </div>
+</section>
+}

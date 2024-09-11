@@ -1,0 +1,59 @@
+<section class="my-4">
+    <div class="w-[75%] mx-auto">
+        <h1 class="text-main h2 font-bold text-center">{{"cart.title" | translate}}<span class="text-sm"> ({{totalItems()}})</span>
+        </h1>
+        <p class="text-red-600 my-3 font-semibold">{{"cart.totalPrice" | translate}}: {{cartProducts().totalCartPrice | currency : 'GBP'}}</p>
+        <!-- <button class="btn-main font-bold">Clear</button> -->
+
+        <!-- clear cart part -->
+        <button (click)="clearCart()" 
+            class="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+            type="button">
+            {{"cart.clear" | translate}}
+        </button>
+        @if(totalItems() === 0) {
+            <div class="flex flex-col gap-4">
+                <p class="text-center text-red-600 font-semibold">{{"cart.empty" | translate}}</p>
+                <button>
+                    <a [routerLink]="['/products']" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none ">{{"cart.shopNow" | translate}}</a>
+                </button>
+            </div>
+        }
+        @else {
+            <div class="grid grid-cols-1 sm:grid-cols-12 items-center gap-3">
+                @for (product of cartProducts().products; track product.product.id) {
+                <!-- image -->
+                <div [routerLink]="['/details', product.product._id]" class="  sm:col-span-2 lg:col-span-1 mt-4 product cr">
+                    <img [src]="product.product.imageCover" class="w-full" [alt]="product.product.title">
+                </div>
+                <!-- details -->
+                <div class=" sm:col-span-10 lg:col-span-11 border rounded-md p-3 sm:border-0 sm:p-0">
+                    <div class="flex justify-between items-center">
+                        <div class="details mb-3">
+                            <h3 class="text-[16px]">{{product.product.title}}</h3>
+                            <p class="text-main">{{product.price | currency : 'GBP'}}</p>
+    
+                            <!-- remove product from the cart -->
+                            <span (click)="removeSpecificProduct(product.product.id)"
+                                class="cr  hover:text-[16px]  font-bold text-[14px] transition-all duration-300  active:scale-95 active:text-red-900">
+                                <i class="fa-solid fa-trash text-red-700"> </i>
+                                {{"cart.remove" | translate}}</span>
+                        </div>
+                        <div class="actions flex items-center gap-2">
+                            <i (click)="updateProductQuantity(product.product.id, product.count - 1)"
+                                class="cr fa-solid fa-minus text-main fa-xl"></i>
+                            <span class="p-1 rounded-md border-2 border-[--main-color]">{{product.count}}</span>
+                            <i (click)="updateProductQuantity(product.product.id, product.count + 1)"
+                                class="cr fa-solid fa-plus text-main fa-xl"></i>
+                        </div>
+                    </div>
+                    <!-- <hr> -->
+                </div>
+                }
+                
+            </div>
+            <button [routerLink]="['/orders', cartProducts()._id]" type="button" class="mt-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none ">{{"cart.order" | translate}}</button>
+        }
+
+    </div>
+</section>

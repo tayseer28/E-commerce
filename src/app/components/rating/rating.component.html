@@ -1,0 +1,34 @@
+<div>
+    @for (num of [1, 2, 3, 4, 5].slice(0, ratingAvg); track $index) {
+    <span class="me-0.5">
+        <i class="fas fa-star rating-color"></i> <!-- Full stars -->
+    </span>
+    }
+
+    @if (ratingAvg% 1 !== 0) {
+    <span class="me-1 relative inline-block">
+        <i class="fas fa-star" [ngStyle]="{
+                      background: 'linear-gradient(90deg, #fcd34d ' + (ratingAvg% 1) * 100 + '%, #e5e7eb ' + (ratingAvg% 1) * 100 + '%)',
+                      '-webkit-background-clip': 'text',
+                      '-webkit-text-fill-color': 'transparent',
+                      color: 'transparent'
+                    }">
+        </i>
+    </span>
+    @for (item of [1, 2, 3, 4, 5].slice((ratingAvg+ 1)); track $index) {
+    <span class="me-1">
+        <i class="fas fa-star text-gray-400"></i>
+    </span>
+    }
+    }
+    @else {
+    @for (item of [1, 2, 3, 4, 5].slice(ratingAvg); track $index) {
+    <span class="me-1">
+        <i class="fas fa-star text-gray-400"></i>
+    </span>
+    }
+    }
+
+
+    <span class="text-gray-400">{{ ratingAvg}}</span>
+</div>

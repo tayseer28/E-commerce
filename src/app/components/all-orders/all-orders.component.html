@@ -1,0 +1,87 @@
+<section class="my-5">
+    <div class="container">
+        <h1 class="font-extrabold h2 font-sans">My Orders</h1>
+        <div class="orders bg-white">
+
+            <div class="">
+                @for (order of userOrders(); track order.user._id) {
+                <div   class="order border-[2px] mt-4 p-3 rounded-md hover:scale-[105%] cr transition-scale duration-300 hover:shadow-lg shadow-md">
+                    @if(order.isPaid){
+                    <span
+                        class="bg-green-100 p-1 rounded-lg border border-green-400 flex items-center gap-1 w-[fit-content]">
+                        <i class="fas fa-check-circle text-green-500"></i>
+                        <span class="text-green-500">Paid</span>
+                    </span>
+                    }
+                    @else if (!order.isPaid) {
+                    <span
+                        class="py-0.5 px-1 rounded-lg border border-blue-400 bg-blue-100 flex items-center gap-2 w-[fit-content]">
+                        <i class="fas fa-times-circle text-blue-500"></i>
+                        <span class="text-blue-500 text-[14px]">Not Paid</span>
+                    </span>
+                    }
+                    <div class="flex justify-between">
+
+                        <p class="p-2 rounded-m">order <span class="text-gray-400">#{{order.id}}</span></p>
+                        @if(order.isDelivered){
+                        <span>
+                            <i class="fas fa-check-circle text-green-500"></i>
+                            <span class="text-green-500">Delivered</span>
+                        </span>
+                        }
+                        @else if (!order.isDelivered) {
+                        <span
+                            class="px-1 rounded-lg border border-blue-400 bg-blue-100 flex items-center gap-2 w-[fit-content]">
+                            <i class="fa-solid fa-circle-half-stroke text-blue-400"></i>
+                            <span class="text-blue-500 text-[12px]">In Progress</span>
+                        </span>
+                        }
+                    </div>
+                    <p class="text-gray-800">Total Price: <span class="font-bold">{{order.totalOrderPrice | currency : "GBP"}}</span></p>
+                    <p class="text-gray-800">Shipping Price: <span class="font-bold">{{order.shippingPrice | currency : "GBP"}}</span></p>
+                    <hr class="m-3">
+                    <div class="grid grid-cols-12">
+                        <div class="col-span-2 md:col-span-3 text-gray-500 flex gap-1  items-center">
+                            <i class="fas fa-location"></i>
+                            <span>{{order.shippingAddress.city}}</span>
+
+                        </div>
+                        <!-- created at -->
+                        <div class="col-span-4 md:col-span-3  ">
+                            <p class="text-[10px] text-gray-400 mb-1">created at: </p>
+                            <div class=" text-[12px] text-gray-600 flex gap-1 items-center">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span >{{order.createdAt | date : 'short'}}</span>
+                            </div>
+                        </div>
+                        <!-- delivery at -->
+                        <div class="col-span-4 md:col-span-3">
+                            <p class="text-[10px] text-gray-400 mb-1">expected delivery:  </p>
+                            <div class=" text-[12px] text-gray-600 flex gap-1 items-center">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span >{{calcDeliveryDate(order.createdAt) | date : 'short'}}</span>
+                            </div>
+                        </div>
+                        <!-- payment Method -->
+                        <div class="col-span-2 nd:col-span-3">
+                            <p class="text-[10px] text-gray-400">payment method: </p>
+                            <div class=" text-[12px] text-gray-600 flex gap-1 items-center">
+                                <i class="fas fa-money-check-alt"></i>
+                                <span>{{order.paymentMethodType}}</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+
+  
+  

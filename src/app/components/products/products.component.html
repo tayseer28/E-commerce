@@ -1,0 +1,99 @@
+<section class="my-5">
+    <div class="w-[75%] mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-[80%] mx-auto lg:w-full">
+            @for (product of products().slice(0,12); track $index) {
+            <div
+                class="group hover:scale-[104%] transition-all hover:shadow-md  duration-500 bg-white border border-gray-200 rounded-lg shdow">
+                <a>
+                    <img class="pb-3 rounded-t-lg w-full" [src]="product.imageCover" [alt]="product.title" />
+                </a>
+                <div class="px-5 pb-5">
+                    <a href="#">
+                        <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                            {{product.description | trimText: 2}}</h5>
+                    </a>
+                    <!-- rating stars part -->
+                    <app-rating [ratingAvg]="product.ratingsAverage"></app-rating>
+                    <div class="flex items-center justify-between">
+                        <span class="text-3xl md:text-xl font-bold text-gray-900 dark:text-white">{{product.price |currency: "GBP"}}</span>
+                        <div class="flex items-center gap-3 ">
+                            @if (_WishlistService.userWishList().has(product._id)) {
+                                <div (click)="removeProductFromWishlist(product.id)" class="wishlist-icon cr ms-3">
+                                    <i class="fas fa-heart text-red-500 fa-2xl"></i>
+                                </div>
+            
+                                }
+                                @else if(_WishlistService.userWishList().has(product._id)=== false) {
+                                <div (click)="addProductToWishlist(product._id)" class="wishlist-icon cr ms-3">
+                                    <i class="far fa-heart text-red-500 fa-2xl"></i>
+                                </div>
+                                }
+                            <div (click)="addToCart(product.id)"
+                                class="button flex justify-center items-center bg-gray-200 border border-gray-400 rounded-md w-[fit-content] px-4 py-6 lg:py-5 lg:px-3">
+                                <i class="fa-solid fa-cart-plus text-gray-400 fa-2xl lg:fa-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a [routerLink]="['/details', product._id]"  class="hidden group-hover:inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
+                        Read more
+                         <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            }
+        </div>
+
+        <div #lazyLoading></div>
+        @if(isLazyLoaded){
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-[80%] mx-auto lg:w-full">
+                @for (product of products().slice(12); track $index) {
+                    <div
+                        class="group hover:scale-[104%] transition-all hover:shadow-md  duration-500 bg-white border border-gray-200 rounded-lg shdow">
+                        <a>
+                            <img class="pb-3 rounded-t-lg w-full" [src]="product.imageCover" [alt]="product.title" />
+                        </a>
+                        <div class="px-5 pb-5">
+                            <a href="#">
+                                <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                                    {{product.description | trimText: 2}}</h5>
+                            </a>
+                            <!-- rating stars part -->
+                            <app-rating [ratingAvg]="product.ratingsAverage"></app-rating>
+                            <div class="flex items-center justify-between">
+                                <span class="text-3xl md:text-xl font-bold text-gray-900 dark:text-white">{{product.price |currency: "GBP"}}</span>
+                                <div class="flex items-center gap-3 ">
+                                    @if (_WishlistService.userWishList().has(product._id)) {
+                                        <div (click)="removeProductFromWishlist(product.id)" class="wishlist-icon cr ms-3">
+                                            <i class="fas fa-heart text-red-500 fa-2xl"></i>
+                                        </div>
+                    
+                                        }
+                                        @else if(_WishlistService.userWishList().has(product._id)=== false) {
+                                        <div (click)="addProductToWishlist(product._id)" class="wishlist-icon cr ms-3">
+                                            <i class="far fa-heart text-red-500 fa-2xl"></i>
+                                        </div>
+                                        }
+                                    <div (click)="addToCart(product.id)"
+                                        class="button flex justify-center items-center bg-gray-200 border border-gray-400 rounded-md w-[fit-content] px-4 py-6 lg:py-5 lg:px-3">
+                                        <i class="fa-solid fa-cart-plus text-gray-400 fa-2xl lg:fa-xl"></i>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <a [routerLink]="['/details', product._id]"  class="hidden group-hover:inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
+                                Read more
+                                 <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    }
+
+            </div>
+        }
+    </div>
+</section>

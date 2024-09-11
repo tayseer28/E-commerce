@@ -1,0 +1,26 @@
+<section class="py-5 bg-gray-50 lg:container">
+    <div class="w-[70%] mx-auto ">
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+            @for (category of categoriesList(); track $index) {
+                <div class="relative shadow-md rounded-md hover:scale-[105%] hover:shadow-xl transition-scale duration-300 overflow-hidden group">
+                    <img class=" w-full h-full rounded-lg" [src]="category.image" [alt]="category.name">
+                    <div class="layer flex justify-center gap-2 flex-col h-full items-center absolute top-0 right-0 left-0 translate-x-[120%] bg-opacity-80 bg-white group-hover:translate-x-0 transition-all duration-500">
+                        <h2 class=" self-start ms-2 text-[20px] font-bold text-gray-400 ">{{category.name}}</h2>
+                        <div class="subCategory">
+                            <h5 class="font-semibold">SUB CATEGORIES: </h5>
+                            <ul class="mx-4">
+                                @for (el of subCategoriesList(); track  el._id) {
+                                    <li class="text-[14px]">{{el.name}}</li>
+                                    <hr>
+                                }
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            }
+        </div>
+
+    </div>
+
+</section>

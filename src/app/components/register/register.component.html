@@ -1,0 +1,163 @@
+<section class="bg-main-light shadow-lg p-7 mt-36 mb-9 rounded-md w-full ">
+    <div>
+
+        <h1 class="h2 font-bold text-main my-4">{{"register.title" | translate}}: </h1>
+        <!-- to bind between the html and the ts of the formGroup -->
+    
+        <form class=" mx-auto" [formGroup]="registerForm" (ngSubmit)="registerSubmit()">
+            <!-- name -->
+            <div class="relative z-0 w-full mb-5 group">
+                <!-- to bind the ts of the form control we use the formControlName property -->
+    
+                <input [ngClass]="{
+                'is-valid' : !registerForm.get('name')?.errors && (registerForm.get('name')?.touched || registerForm.get('name')?.dirty),
+                'is-invalid' : registerForm.get('name')?.errors && (registerForm.get('name')?.touched || registerForm.get('name')?.dirty)
+            }" type="text" name="floating_name" id="floating_name" formControlName="name"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white  focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                    placeholder=" " required />
+    
+                <label for="floating_name"
+                    class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                    {{"register.name" | translate}}:</label>
+    
+                <!-- we set ? for null safety if we dont have name formControl -->
+                @if (registerForm.get('name')?.errors && (registerForm.get('name')?.touched ||
+                registerForm.get('name')?.dirty)) {
+                <div class="custom-alert mt-3">
+                    @if (registerForm.get('name')?.getError('required')) {
+                    <p class="m-0">{{"register.required" | translate}}</p>
+                    }
+                    @else if (registerForm.get('name')?.getError('minlength'))
+                    {<!-- notice error name small in all characters -->
+    
+                    <p class="m-0">{{"register.nameMinLength" | translate}}</p>
+                    }
+                    @else if (registerForm.get('name')?.getError('maxlength')) {
+                    <p class="m-0">{{"register.nameMaxLength" | translate}}</p>
+                    }
+                </div>
+                }
+    
+            </div>
+            <!-- email -->
+            <div class="relative z-0 w-full mb-5 group">
+                <input [ngClass]="{
+                'is-valid' : !registerForm.get('email')?.errors && (registerForm.get('email')?.touched || registerForm.get('email')?.dirty),
+                'is-invalid' : registerForm.get('email')?.errors && (registerForm.get('email')?.touched || registerForm.get('email')?.dirty)
+            }" type="email" name="floating_email" id="floating_email" formControlName="email"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white  focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                    placeholder=" " required />
+    
+                <label for="floating_email"
+                    class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">{{"register.email"
+                    | translate}}:</label>
+                @if (registerForm.get('email')?.errors && (registerForm.get('email')?.touched ||
+                registerForm.get('email')?.dirty)) {
+                <div class="custom-alert mt-3">
+                    @if (registerForm.get('email')?.getError('required')) {
+                    <p class="m-0">{{"register.required" | translate}}</p>
+                    }
+                    @else if (registerForm.get('email')?.getError('email')) {
+    
+                    <p class="m-0">{{"register.invalidEmail" | translate}} </p>
+                    }
+    
+                </div>
+                }
+            </div>
+            <!-- password group -->
+            <div class="grid md:grid-cols-2 md:gap-6">
+                <!-- password -->
+                <div class="relative z-0 w-full mb-5 group">
+                    <input [ngClass]="{
+                'is-valid' : !registerForm.get('password')?.errors && (registerForm.get('password')?.touched || registerForm.get('password')?.dirty),
+                'is-invalid' : registerForm.get('password')?.errors && (registerForm.get('password')?.touched || registerForm.get('password')?.dirty)
+                }" type="password" name="floating_password" id="floating_password" formControlName="password"
+                        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white  focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                        placeholder=" " required />
+                    <label for="floating_password"
+                        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">{{"register.password"
+                        | translate}}:</label>
+                    @if (registerForm.get('password')?.errors && (registerForm.get('password')?.touched ||
+                    registerForm.get('password')?.dirty) ) {
+                    <div class="custom-alert mt-3">
+                        @if (registerForm.get('password')?.getError('required')) {
+                        <p class="m-0">{{"register.required" | translate}}</p>
+                        }
+                        @else if (registerForm.get('password')?.getError('pattern')) {
+    
+                        <p class="m-0">{{"register.passwordPattern" | translate}}</p>
+                        }
+    
+                    </div>
+                    }
+                </div>
+                <!-- repeat password -->
+                <div class="relative z-0 w-full mb-5 group">
+                    <input [ngClass]="{
+                'is-valid' : !registerForm.get('rePassword')?.errors && (registerForm.get('rePassword')?.touched || registerForm.get('rePassword')?.dirty),
+                'is-invalid' : registerForm.get('rePassword')?.errors && (registerForm.get('rePassword')?.touched || registerForm.get('rePassword')?.dirty)
+            }" type="password" name="repeat_password" id="floating_repeat_password"
+                        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white  focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                        placeholder=" " formControlName="rePassword" required />
+                    <label for="floating_repeat_password"
+                        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">{{"register.rePassword" | translate}}</label>
+                    @if (registerForm.getError('mismatch') && (registerForm.get('rePassword')?.touched ||
+                    registerForm.get('rePassword')?.dirty)) {
+                    <div class="custom-alert mt-3">
+                        <p class="m-0">{{"register.mismatch" | translate}}</p>
+                    </div>
+                    }
+                </div>
+    
+            </div>
+            <!-- phone number -->
+            <div class="relative z-0 w-full mb-5 group">
+                <input [ngClass]="{
+                    'is-valid' : !registerForm.get('phone')?.errors && (registerForm.get('phone')?.touched || registerForm.get('phone')?.dirty),
+                    'is-invalid' : registerForm.get('phone')?.errors && (registerForm.get('phone')?.touched || registerForm.get('phone')?.dirty)
+                }" type="tel" formControlName = "phone" name="floating_phone" id="floating_phone"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white  focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                    placeholder=" "  />
+                <label for="floating_phone"
+                    class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">{{"register.phone"
+                    | translate}} {{"register.(123-456-7890)" | translate}}</label>
+                @if (registerForm.get('phone')?.errors && (registerForm.get('phone')?.touched ||
+                registerForm.get('phone')?.dirty)) {
+                <div class="custom-alert mt-3">
+                    @if (registerForm.get('phone')?.getError('required')) {
+                    <p class="m-0">{{"register.required" | translate}}</p>
+                    }
+                    @else if (registerForm.get('phone')?.getError('pattern')) {
+    
+                    <p class="m-0">{{"register.phonePattern" | translate}}</p>
+                    }
+    
+                </div>
+                }
+            </div>
+            
+            <!-- submit -->
+            <div class="flex justify-between items-center mt-3">
+                <a routerLink = "/login" class="cr text-gray-400 underline hover:text-gray-600">already have an acoount?</a>
+        
+                <button type="submit" class="btn-main ms-auto block">
+                    {{"register.submit" | translate}}
+                    @if (isLoading) {
+                    <span><i class="fas fa-spin fa-spinner"></i></span>
+                    }
+                </button>
+            </div>
+            @if (errorMsg) {
+            <p class="custom-alert m-0">{{errorMsg}}</p>
+            }
+            @if(successMsg){
+            <p
+                class="bg-green-50 border border-green-500 text-green-900 dark:text-green-400 placeholder-green-700  text-sm rounded-lg p-2.5 m-2 w-[fit-content]">
+                {{successMsg}}</p>
+            }
+        </form>
+    </div>
+
+</section>
+

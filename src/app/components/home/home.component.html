@@ -1,0 +1,155 @@
+<section id="main-slider" class="my-5">
+    <div class="container">
+        <div class="grid grid-cols-1 md:grid-cols-12">
+            <div class="col-span-1 md:col-span-8 relative">
+
+                <owl-carousel-o [options]="customOptionsMain" class="">
+                    <ng-template carouselSlide> <img src="./assets/images/slider-image-3.jpeg"
+                            class="w-full h-[350px] object-fill rounded-t-md" alt="main photo">
+                    </ng-template>
+                    <ng-template carouselSlide> <img src="./assets/images/slider-image-3.jpeg"
+                            class="w-full h-[350px] object-fill rounded-t-md" alt="main photo">
+                    </ng-template>
+                    <ng-template carouselSlide> <img src="./assets/images/slider-image-3.jpeg"
+                            class="w-full h-[350px] object-fill rounded-t-md" alt="main photo">
+                    </ng-template>
+                    <ng-template carouselSlide> <img src="./assets/images/slider-image-3.jpeg"
+                            class="w-full h-[350px] object-fill rounded-t-md" alt="main photo">
+                    </ng-template>
+                    <ng-template carouselSlide> <img src="./assets/images/slider-image-3.jpeg"
+                            class="w-full h-[350px] object-fill rounded-t-md" alt="main photo">
+                    </ng-template>
+                    <ng-template carouselSlide> <img src="./assets/images/slider-image-3.jpeg"
+                            class="w-full h-[350px] object-fill rounded-t-md" alt="main photo">
+                    </ng-template>
+
+                </owl-carousel-o>
+
+                <div
+                    class="absolute top-0 left-0 flex flex-col justify-center h-full text-start text-gray-400 font-mono ms-4 z-10">
+                    <h2 class="text-nowrap px-1 mb-3 h2">{{"mainSlider.Welcome to our store" | translate}}</h2>
+
+                    <p class="">{{"mainSlider.Get the best products at the best prices" | translate}}</p>
+                    <button type="button"
+                        class=" border mt-4 border-gray-400 hover:bg-gray-300 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2.5  inline-flex items-center me-2 w-[fit-content]">
+                        <svg class="w-3.5 h-3.5 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor" viewBox="0 0 18 21">
+                            <path
+                                d="M15 12a1 1 0 0 0 .962-.726l2-7A1 1 0 0 0 17 3H3.77L3.175.745A1 1 0 0 0 2.208 0H1a1 1 0 0 0 0 2h.438l.6 2.255v.019l2 7 .746 2.986A3 3 0 1 0 9 17a2.966 2.966 0 0 0-.184-1h2.368c-.118.32-.18.659-.184 1a3 3 0 1 0 3-3H6.78l-.5-2H15Z" />
+                        </svg>
+                        {{'mainSlider.shop now' | translate}}
+                    </button>
+                </div>
+
+
+            </div>
+            <!-- ------ -->
+            <div class="md:col-span-4">
+                <img src="./assets/images/slider-image-1.jpeg" class=" w-full h-[175px] object-cover"
+                    alt="main-photo">
+                <img src="./assets/images/slider-image-2.jpeg" class=" w-full h-[175px] object-cover"
+                    alt="main-photo">
+
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<!-- ---------------------------------------------- -->
+<section id="categories" class="my-4">
+    <div class="container">
+        <h2 class="text-main h2 mb-4 text-center mt-5 font-sans font-extrabold">{{"categories.popular categories" | translate}}</h2>
+        <owl-carousel-o [options]="customOptionsCateg">
+
+            @for (category of categories; track category._id) {
+            <ng-template carouselSlide>
+                <div>
+                    <img [src]="category.image" class="w-full h-[250px]" [alt]="category.name">
+                    <h3 class="text-[14px] text-main text-center">{{category.name}}</h3>
+                </div>
+            </ng-template>
+            }
+        </owl-carousel-o>
+
+    </div>
+</section>
+
+<!-- ---------------------------------------------- -->
+<section id="home" class="my-5">
+    <div class="w-[75%] mx-auto">
+
+        <h2 class="text-main h2 mb-4 text-center font-sans font-extrabold mt-5">{{"home.popular products" | translate}} </h2>
+        <!-- start search input -->
+        <!-- we will use two way databinding to get the value of the input and send it to the pipe  -->
+        <form class=" mx-auto my-3">
+            <label for="default-search"
+                class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+            <div class="relative">
+                <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                    </svg>
+                </div>
+                <input [(ngModel)]="searchValue" [ngModelOptions]="{standalone: true}" type="search" id="default-search"
+                    class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="{{ 'home.search' | translate }}" required />
+
+                <!-- <button type="submit" class="text-white absolute end-2.5 bottom-2.5 btn-main ">Search</button> -->
+            </div>
+        </form>
+        <!-- end search input -->
+        <div class="grid gap-4 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 ">
+            <!-- we disply 12 product but the search applied on all products -->
+            @for (product of (products | search: searchValue).slice(0, 12); track product.id) {
+            <!-- card -->
+            <div id="product"
+                class="card product bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                <!-- the second parameter is the product id , cause i want it to be in the path -->
+                <div [routerLink]="['/details', product._id]">
+
+                    <img class="rounded-t-lg w-full" [src]="product.imageCover" alt="product" />
+                    <hr>
+                    <div class="p-3">
+                        <h3 class="text-main text-sm">{{product.category.name}}</h3>
+                        <h4 class="text-[10px] ">{{product.title| trimText : 2}}</h4>
+
+                        <div class="flex justify-between items-center mt-2">
+                            <span class="lg:text-[16px] text-[22px] font-bold">{{product.price | currency :
+                                'GBP'}}</span>
+                            <!-- rating stars part -->
+                            <app-rating [ratingAvg]="product.ratingsAverage"></app-rating>
+                        </div>
+                        <!-- wishlist icon -->
+
+                    </div>
+                </div>
+
+                <div class="bg-gray-100 border-t py-3 flex justify-between items-center px-3">
+                    @if (userWishList().has(product._id)) {
+                        <div (click)="removeProductFromWishlist(product.id)" class="wishlist-icon cr ms-3">
+                            <i class="fas fa-heart text-red-500 fa-2xl"></i>
+                        </div>
+    
+                        }
+                        @else if(userWishList().has(product._id) === false) {
+                        <div (click)="addProductToWishlist(product._id)" class="wishlist-icon cr ms-3">
+                            <i class="far fa-heart text-red-500 fa-2xl"></i>
+                        </div>
+                        }
+                    <div (click)="addToCart(product.id)"
+                        class="button flex justify-center items-center bg-gray-200 border border-gray-400 rounded-md w-[fit-content] px-4 py-6 lg:py-5 lg:px-3">
+                        <i class="fa-solid fa-cart-plus text-gray-400 fa-2xl lg:fa-xl"></i>
+                    </div>
+
+
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+
+
+</section>

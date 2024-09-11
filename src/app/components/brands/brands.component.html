@@ -1,0 +1,13 @@
+<section class="py-5 bg-gray-50">
+    <div class="w-[70%] mx-auto">
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+            @for (brand of brandsList(); track $index) {
+                <div class="shadow-md rounded-md hover:scale-[105%] transition-scale duration-300">
+                    <img class=" w-full rounded-lg" [src]="brand.image" [alt]="brand.name">
+                </div>
+            }
+        </div>
+
+    </div>
+
+</section>
